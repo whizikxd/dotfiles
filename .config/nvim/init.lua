@@ -27,7 +27,7 @@ vim.g.netrw_sizestyle = "H"
 -- vim.g.netrw_browse_split = 2
 
 -- Block cursor for every mode 
-vim.cmd("set guicursor=n-v-c-i:block-Cursor")
+-- vim.cmd("set guicursor=n-v-c-i:block-Cursor")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
