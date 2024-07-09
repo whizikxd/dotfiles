@@ -15,4 +15,4 @@ export VISUAL='nvim'
 export EDITOR=$VISUAL
 export GIT_EDITOR=$VISUAL
 
-alias e='nvim'
+alias e=$VISUAL
