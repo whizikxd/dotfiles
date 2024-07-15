@@ -35,6 +35,8 @@ vim.opt.listchars = {
 --  space = ".",
 }
 
+vim.opt.wildignorecase = true
+
 -- Block cursor for every mode 
 -- vim.cmd("set guicursor=n-v-c-i:block-Cursor")
 
