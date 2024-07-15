@@ -12,7 +12,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
-vim.opt.colorcolumn = "79" 
+vim.opt.colorcolumn = "79"
 
 vim.opt.clipboard = "unnamedplus"
 
@@ -25,6 +25,15 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_sort_sequence = [[[\/]$,*]]
 vim.g.netrw_sizestyle = "H"
 -- vim.g.netrw_browse_split = 2
+
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "->",
+  trail = "~",
+--  extends = ">",
+--  precedes = "<",
+--  space = ".",
+}
 
 -- Block cursor for every mode 
 -- vim.cmd("set guicursor=n-v-c-i:block-Cursor")
@@ -48,3 +57,4 @@ require("lazy").setup({
 
 vim.opt.background = "dark"
 vim.cmd("colorscheme gruvbox")
+
