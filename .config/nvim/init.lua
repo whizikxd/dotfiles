@@ -54,7 +54,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {"ellisonleao/gruvbox.nvim", lazy = false},--, config = true, opts = ...},
+--  {"ellisonleao/gruvbox.nvim", lazy = false},--, config = true, opts = ...},
+  {"bluz71/vim-moonfly-colors", lazy = false}, --, priority = 1000 },
   {
   "neovim/nvim-lspconfig",
   lazy = false,
@@ -65,7 +66,18 @@ require("lazy").setup({
   },
   init = function()
     vim.g.coq_settings = {
-        auto_start = "shut-up", -- Makes it not display a startup message
+      auto_start = "shut-up", -- Makes it not display a startup message
+      display = {
+        pum = {
+          fast_close = true
+        },
+        ghost_text = {
+          context = {" ", " "}
+        }
+      },
+      completion = {
+        always = false
+      }
     }
   end,
   config = function()
@@ -75,8 +87,10 @@ require("lazy").setup({
 })
 
 vim.opt.background = "dark"
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme moonfly")
 
 local coq = require("coq")
 local lspconfig = require("lspconfig")
+lspconfig.clangd.setup{}
 lspconfig.clangd.setup(coq.lsp_ensure_capabilities({}))
+
