@@ -54,9 +54,29 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {"ellisonleao/gruvbox.nvim", lazy = false, config = true, opts = ...},
+  {"ellisonleao/gruvbox.nvim", lazy = false},--, config = true, opts = ...},
+  {
+  "neovim/nvim-lspconfig",
+  lazy = false,
+  dependencies = {
+    { "ms-jpq/coq_nvim", branch = "coq" },
+    { "ms-jpq/coq.artifacts", branch = "artifacts" },
+    { 'ms-jpq/coq.thirdparty', branch = "3p" }
+  },
+  init = function()
+    vim.g.coq_settings = {
+        auto_start = "shut-up", -- Makes it not display a startup message
+    }
+  end,
+  config = function()
+    -- Empty for now
+  end,
+  }
 })
 
 vim.opt.background = "dark"
 vim.cmd("colorscheme gruvbox")
 
+local coq = require("coq")
+local lspconfig = require("lspconfig")
+lspconfig.clangd.setup(coq.lsp_ensure_capabilities({}))
