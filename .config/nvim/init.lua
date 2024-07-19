@@ -69,20 +69,26 @@ require("lazy").setup({
       auto_start = "shut-up", -- Makes it not display a startup message
       display = {
         pum = {
-          fast_close = true
+          fast_close = true,
+          source_context = {"[", "]"}
         },
         ghost_text = {
-          context = {" ", " "}
+          enabled = true,
+          context = {" ", " "},
+          highlight_group = "Comment"
+        },
+        preview = {
+          border = "solid"
+        },
+        icons = {
+          mode = "short"
         }
       },
       completion = {
-        always = false
+        always = false -- Need to press ctrl + space to trigger completion window
       }
     }
-  end,
-  config = function()
-    -- Empty for now
-  end,
+  end
   }
 })
 
