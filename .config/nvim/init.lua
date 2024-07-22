@@ -18,6 +18,10 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.history = 150
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 20
@@ -56,39 +60,48 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 --  {"ellisonleao/gruvbox.nvim", lazy = false},--, config = true, opts = ...},
   {"bluz71/vim-moonfly-colors", lazy = false}, --, priority = 1000 },
-  {
-  "neovim/nvim-lspconfig",
-  lazy = false,
-  dependencies = {
-    { "ms-jpq/coq_nvim", branch = "coq" },
-    { "ms-jpq/coq.artifacts", branch = "artifacts" },
-    { 'ms-jpq/coq.thirdparty', branch = "3p" }
+  {"nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup{}
+    end,
   },
-  init = function()
-    vim.g.coq_settings = {
-      auto_start = "shut-up", -- Makes it not display a startup message
-      display = {
-        pum = {
-          fast_close = true,
-          source_context = {"[", "]"}
+  {"neovim/nvim-lspconfig",
+    lazy = false,
+    dependencies = {
+      { "ms-jpq/coq_nvim", branch = "coq" },
+      { "ms-jpq/coq.artifacts", branch = "artifacts" },
+      { 'ms-jpq/coq.thirdparty', branch = "3p" }
+    },
+    init = function()
+      vim.g.coq_settings = {
+        auto_start = "shut-up", -- Makes it not display a startup message
+        display = {
+          pum = {
+            fast_close = true,
+            source_context = {"[", "]"}
+          },
+          ghost_text = {
+            enabled = true,
+            context = {" ", " "},
+            highlight_group = "Comment"
+          },
+          preview = {
+            border = "solid"
+          },
+          icons = {
+            mode = "short"
+          }
         },
-        ghost_text = {
-          enabled = true,
-          context = {" ", " "},
-          highlight_group = "Comment"
-        },
-        preview = {
-          border = "solid"
-        },
-        icons = {
-          mode = "short"
+        completion = {
+          always = false -- Need to press ctrl + space to trigger completion window
         }
-      },
-      completion = {
-        always = false -- Need to press ctrl + space to trigger completion window
       }
-    }
-  end
+    end
   }
 })
 
