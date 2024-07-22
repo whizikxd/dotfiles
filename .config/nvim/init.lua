@@ -41,6 +41,9 @@ vim.opt.listchars = {
 
 vim.opt.wildignorecase = true
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Block cursor for every mode 
 -- vim.cmd("set guicursor=n-v-c-i:block-Cursor")
 
@@ -68,6 +71,8 @@ require("lazy").setup({
     },
     config = function()
       require("nvim-tree").setup{}
+      vim.keymap.set("n", "<leader>ft", ":NvimTreeToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>fo", ":NvimTreeOpen ", {})
     end,
   },
   {"neovim/nvim-lspconfig",
