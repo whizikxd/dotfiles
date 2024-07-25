@@ -62,7 +62,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {"bluz71/vim-moonfly-colors", lazy = false},
-  {"hrsh7th/nvim-cmp", 
+  {"hrsh7th/nvim-cmp",
     lazy = false,
     dependencies = {
       "neovim/nvim-lspconfig",
@@ -105,6 +105,16 @@ require("lazy").setup({
           sources = {
             { name = 'buffer' }
           }
+      })
+
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        }),
+        matching = { disallow_symbol_nonprefix_matching = false }
       })
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
