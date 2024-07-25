@@ -72,6 +72,9 @@ require("lazy").setup({
     config = function()
       require("nvim-tree").setup{}
       vim.keymap.set("n", "<leader>ft", ":NvimTreeToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>fr", ":NvimTreeRefresh<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>fc", ":NvimTreeClipboard<CR>", { silent = true})
+      vim.keymap.set("n", "<leader>ff", ":NvimTreeFocus<CR>", { silent = true})
       vim.keymap.set("n", "<leader>fo", ":NvimTreeOpen ", {})
     end,
   },
