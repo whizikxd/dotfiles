@@ -61,63 +61,69 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
---  {"ellisonleao/gruvbox.nvim", lazy = false},--, config = true, opts = ...},
-  {"bluz71/vim-moonfly-colors", lazy = false}, --, priority = 1000 },
-  {"nvim-tree/nvim-tree.lua",
-    version = "*",
+  {"bluz71/vim-moonfly-colors", lazy = false},
+  {"hrsh7th/nvim-cmp", 
     lazy = false,
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+      "neovim/nvim-lspconfig",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/vim-vsnip",
     },
     config = function()
-      require("nvim-tree").setup{}
-      vim.keymap.set("n", "<leader>ft", ":NvimTreeToggle<CR>", { silent = true })
-      vim.keymap.set("n", "<leader>fr", ":NvimTreeRefresh<CR>", { silent = true })
-      vim.keymap.set("n", "<leader>fc", ":NvimTreeClipboard<CR>", { silent = true})
-      vim.keymap.set("n", "<leader>ff", ":NvimTreeFocus<CR>", { silent = true})
-      vim.keymap.set("n", "<leader>fo", ":NvimTreeOpen ", {})
-    end,
-  },
-  {"neovim/nvim-lspconfig",
-    lazy = false,
-    dependencies = {
-      { "ms-jpq/coq_nvim", branch = "coq" },
-      { "ms-jpq/coq.artifacts", branch = "artifacts" },
-      { 'ms-jpq/coq.thirdparty', branch = "3p" }
-    },
-    init = function()
-      vim.g.coq_settings = {
-        auto_start = "shut-up", -- Makes it not display a startup message
-        display = {
-          pum = {
-            fast_close = true,
-            source_context = {"[", "]"}
-          },
-          ghost_text = {
-            enabled = true,
-            context = {" ", " "},
-            highlight_group = "Comment"
-          },
-          preview = {
-            border = "solid"
-          },
-          icons = {
-            mode = "short"
-          }
+      local cmp = require("cmp")
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+          end,
         },
-        completion = {
-          always = false -- Need to press ctrl + space to trigger completion window
-        }
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'vsnip' },
+          }, {
+          { name = 'buffer' },
+        })
+      })
+
+      cmp.setup.cmdline({ '/', '?' }, {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = 'buffer' }
+          }
+      })
+
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local lspconfig = require("lspconfig")
+      lspconfig['clangd'].setup {
+        capabilities = capabilities
       }
+    end
+  },
+  {"nvim-telescope/telescope.nvim",
+    branch = "0.1.8",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+    config = function()
+      vim.keymap.set("n", "<leader>tf", ":Telescope find_files<CR>", {silent = true})
     end
   }
 })
 
 vim.opt.background = "dark"
 vim.cmd("colorscheme moonfly")
-
-local coq = require("coq")
-local lspconfig = require("lspconfig")
-lspconfig.clangd.setup{}
-lspconfig.clangd.setup(coq.lsp_ensure_capabilities({}))
-
