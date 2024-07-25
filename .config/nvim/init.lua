@@ -125,6 +125,7 @@ require("lazy").setup({
     end
   },
   {"nvim-telescope/telescope.nvim",
+    lazy = false,
     branch = "0.1.8",
     dependencies = {
       "nvim-lua/plenary.nvim"
