@@ -130,6 +130,14 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim"
     },
     config = function()
+      local telescope = require("telescope")
+      telescope.setup({
+        pickers = {
+          find_files = {
+            hidden = true
+          }
+        }
+      })
       vim.keymap.set("n", "<leader>tf", ":Telescope find_files<CR>", {silent = true})
     end
   }
