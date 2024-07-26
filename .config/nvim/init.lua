@@ -22,30 +22,16 @@ vim.opt.history = 150
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.g.netrw_liststyle = 3
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 20
-vim.g.netrw_keepdir = 0
-vim.g.netrw_sort_sequence = [[[\/]$,*]]
-vim.g.netrw_sizestyle = "H"
--- vim.g.netrw_browse_split = 2
-
 vim.opt.list = true
 vim.opt.listchars = {
   tab = "->",
   trail = "~",
---  extends = ">",
---  precedes = "<",
---  space = ".",
 }
 
 vim.opt.wildignorecase = true
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Block cursor for every mode 
--- vim.cmd("set guicursor=n-v-c-i:block-Cursor")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -75,10 +61,11 @@ require("lazy").setup({
     },
     config = function()
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
       cmp.setup({
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         window = {
@@ -86,13 +73,13 @@ require("lazy").setup({
           documentation = cmp.config.window.bordered(),
         },
         mapping = {
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.close(),
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-d>'] = cmp.mapping.scroll_docs(4),
-          ['<CR>']  = cmp.mapping.confirm({
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"]     = cmp.mapping.close(),
+          ["<C-u>"]     = cmp.mapping.scroll_docs(-4),
+          ["<C-d>"]     = cmp.mapping.scroll_docs(4),
+          ["<CR>"]      = cmp.mapping.confirm({
               behavior = cmp.ConfirmBehavior.Replace,
-              select = true,
+              select = false,
             }),
 
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -116,33 +103,33 @@ require("lazy").setup({
           end, {"i", "s"}),
         },
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
           }, {
-          { name = 'buffer' },
+          { name = "buffer" },
         })
       })
 
-      cmp.setup.cmdline({ '/', '?' }, {
+      cmp.setup.cmdline({ "/", "?" }, {
           mapping = cmp.mapping.preset.cmdline(),
           sources = {
-            { name = 'buffer' }
+            { name = "buffer" }
           }
       })
 
-      cmp.setup.cmdline(':', {
+      cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          { name = 'path' }
+          { name = "path" }
         }, {
-          { name = 'cmdline' }
+          { name = "cmdline" }
         }),
         matching = { disallow_symbol_nonprefix_matching = false }
       })
 
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-      lspconfig['clangd'].setup {
+      lspconfig["clangd"].setup {
         capabilities = capabilities
       }
     end
