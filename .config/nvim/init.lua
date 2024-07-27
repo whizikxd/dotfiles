@@ -47,7 +47,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {"bluz71/vim-moonfly-colors", lazy = false},
+  {"bluz71/vim-moonfly-colors", 
+    lazy = false,
+    config = function()
+      vim.opt.background = "dark"
+      vim.cmd("colorscheme moonfly")
+    end,
+  },
   {"hrsh7th/nvim-cmp",
     lazy = false,
     dependencies = {
@@ -156,5 +162,4 @@ require("lazy").setup({
   }
 })
 
-vim.opt.background = "dark"
-vim.cmd("colorscheme moonfly")
+
