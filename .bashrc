@@ -11,8 +11,11 @@ alias grep='grep --color=auto'
 PS1='\[\e[38;5;244;1m\]\u\[\e[97m\]@\[\e[38;5;244m\]\h\[\e[39m\][\[\e[97m\]\w\[\e[39m\]]\n$? > \[\e[0m\]'
 PS2='\n> \[\e[0m\]'
 
-export VISUAL='nvim'
-export EDITOR=$VISUAL
-export GIT_EDITOR=$VISUAL
+export EDITOR='nvim'
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
 
-alias e=$VISUAL
+alias e=$EDITOR
+if [ "$EDITOR" == 'nvim' ]; then
+  alias er="$EDITOR -R"
+fi
