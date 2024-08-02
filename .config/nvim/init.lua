@@ -18,6 +18,9 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.history = 150
 
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("~/.local/state/nvim/nvim-undo-dir")
+
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
