@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -18,6 +21,15 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.history = 150
 
+vim.opt.laststatus = 0
+vim.keymap.set("n", "<leader>vs", function()
+  if vim.opt.laststatus:get() == 2 then
+    vim.opt.laststatus = 0
+  else
+    vim.opt.laststatus = 2
+  end
+end, {silent = true})
+
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand("~/.local/state/nvim/nvim-undo-dir")
 
@@ -33,9 +45,6 @@ vim.opt.listchars = {
 
 vim.opt.wildignorecase = true
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -50,7 +59,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {"bluz71/vim-moonfly-colors", 
+  {"bluz71/vim-moonfly-colors",
     lazy = false,
     config = function()
       vim.opt.background = "dark"
@@ -147,7 +156,8 @@ require("lazy").setup({
     lazy = false,
     branch = "0.1.8",
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons"
     },
     config = function()
       local telescope = require("telescope")
