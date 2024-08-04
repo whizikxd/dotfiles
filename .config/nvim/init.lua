@@ -72,8 +72,6 @@ require("lazy").setup({
       "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
     },
@@ -87,8 +85,8 @@ require("lazy").setup({
           end,
         },
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = {border = "none"},
+          documentation = {border = "none"}
         },
         mapping = {
           ["<C-Space>"] = cmp.mapping.complete(),
@@ -126,23 +124,6 @@ require("lazy").setup({
           }, {
           { name = "buffer" },
         })
-      })
-
-      cmp.setup.cmdline({ "/", "?" }, {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            { name = "buffer" }
-          }
-      })
-
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path", option = {trailing_slash = true}}
-        }, {
-          { name = "cmdline" }
-        }),
-        matching = { disallow_symbol_nonprefix_matching = false }
       })
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
