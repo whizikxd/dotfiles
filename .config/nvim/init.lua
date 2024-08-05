@@ -6,7 +6,7 @@ vim.opt.relativenumber = true
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 
 vim.opt.wrap = true
 vim.opt.breakindent = true
@@ -153,6 +153,15 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>tf", ":Telescope find_files<CR>", {silent = true})
       vim.keymap.set("n", "<leader>tm", ":Telescope man_pages<CR>",  {silent = true})
     end
+  },
+  {"stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      local oil = require("oil")
+      oil.setup()
+
+      vim.keymap.set("n", "<leader>vo", ":Oil<CR>", {silent = true})
+    end,
   }
 })
 
