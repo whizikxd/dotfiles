@@ -152,6 +152,7 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>tt", ":Telescope<CR>",  {silent = true})
       vim.keymap.set("n", "<leader>tf", ":Telescope find_files<CR>", {silent = true})
       vim.keymap.set("n", "<leader>tm", ":Telescope man_pages<CR>",  {silent = true})
+      vim.keymap.set("n", "<leader>tb", ":Telescope buffers<CR>",  {silent = true})
     end
   },
   {"stevearc/oil.nvim",
