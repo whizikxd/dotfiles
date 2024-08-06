@@ -181,11 +181,12 @@ require("lazy").setup({
           ["-"]     = "actions.parent",
           ["_"]     = "actions.open_cwd",
           ["`"]     = "actions.cd",
-          ["~"]     = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
           ["gs"]    = "actions.change_sort",
           ["gx"]    = "actions.open_external",
           ["g."]    = "actions.toggle_hidden",
-          ["g\\"]   = "actions.toggle_trash"
+          ["g\\"]   = "actions.toggle_trash",
+          ["<C-u>"] = "actions.preview_scroll_up",
+          ["<C-d>"] = "actions.preview_scroll_down"
         }
       })
 
