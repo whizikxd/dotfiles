@@ -1,0 +1,13 @@
+[font]
+normal      = { family = "Source Code Pro", style = "Bold" }
+bold        = { family = "Source Code Pro", style = "Bold" }
+italic      = { family = "Source Code Pro", style = "Italic" }
+bold_italic = { family = "Source Code Pro", style = "Bold Italic" }
+size = 16
+
+[colors.primary]
+background = "#000000"
+foreground = "#FFFFFF"
+
+[window]
+dynamic_padding = true
