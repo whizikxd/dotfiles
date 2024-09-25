@@ -1,5 +1,5 @@
   return {
-    "whizikxd/naysayer-theme.lua",
+    "whizikxd/naysayer-colors.nvim",
     lazy = false,
     config = function()
       vim.cmd("colorscheme naysayer")
