@@ -1,8 +1,7 @@
   return {
-    "bluz71/vim-moonfly-colors",
+    "whizikxd/naysayer-theme.lua",
     lazy = false,
     config = function()
-      vim.opt.background = "dark"
-      vim.cmd("colorscheme moonfly")
+      vim.cmd("colorscheme naysayer")
     end,
   }
