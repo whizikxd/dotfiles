@@ -21,4 +21,5 @@ export GIT_EDITOR=$EDITOR
 alias e=$EDITOR
 if [[ "$EDITOR" == @(nvim|vim|vi) ]]; then
   alias er="$EDITOR -R"
+  alias ed="$EDITOR -d"
 fi
