@@ -35,6 +35,6 @@ return {
       }
     })
 
-    vim.keymap.set("n", "<leader>vo", ":Oil<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>o", ":Oil<CR>", { silent = true })
   end,
 }

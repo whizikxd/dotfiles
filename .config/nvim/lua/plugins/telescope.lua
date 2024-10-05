@@ -20,10 +20,10 @@ return {
         }
       }
     })
-    vim.keymap.set("n", "<leader>tt", ":Telescope<CR>",  { silent = true })
-    vim.keymap.set("n", "<leader>tf", ":Telescope find_files<CR>", { silent = true })
-    vim.keymap.set("n", "<leader>tm", ":Telescope man_pages<CR>",  { silent = true })
-    vim.keymap.set("n", "<leader>tb", ":Telescope buffers<CR>",  { silent = true })
-    vim.keymap.set("n", "<leader>tg", ":Telescope live_grep<CR>",  { silent = true })
+    vim.keymap.set("n", "<leader>t", ":Telescope<CR>",  { silent = true })
+    vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>m", ":Telescope man_pages<CR>",  { silent = true })
+    vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>",  { silent = true })
+    vim.keymap.set("n", "<leader>g", ":Telescope live_grep<CR>",  { silent = true })
   end
 }

@@ -58,9 +58,13 @@ return {
         { name = "buffer" },
       })
     })
-
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local on_attach = function(client, bufnr)
+      local opts = { noremap = true, silent = true }
+      vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>d", ":lua vim.lsp.buf.definition()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>D", ":lua vim.lsp.buf.declaration()<CR>", opts)
+    end
     local lspconfig = require("lspconfig")
-    lspconfig.clangd.setup{ capabilities = capabilities }
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    lspconfig.clangd.setup{ capabilities = capabilities, on_attach = on_attach }
   end
 }
