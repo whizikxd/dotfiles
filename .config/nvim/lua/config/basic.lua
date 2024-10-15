@@ -1,4 +1,8 @@
 function setup()
+  vim.cmd("filetype on");
+  vim.cmd("filetype plugin on");
+  vim.cmd("filetype indent on");
+  vim.cmd("filetype plugin indent on");
   -- Disable netrw
   vim.g.loaded_netrw       = 1
   vim.g.loaded_netrwPlugin = 1
@@ -12,9 +16,9 @@ function setup()
   vim.opt.hlsearch       = true
   vim.opt.wrap           = true
   vim.opt.breakindent    = true
-  vim.opt.tabstop        = 8
-  vim.opt.shiftwidth     = 8
-  vim.opt.expandtab      = false
+  vim.opt.tabstop        = 2
+  vim.opt.shiftwidth     = 2
+  vim.opt.expandtab      = true
   vim.opt.colorcolumn    = "79"
   vim.opt.clipboard      = "unnamedplus"
   vim.opt.history        = 150
