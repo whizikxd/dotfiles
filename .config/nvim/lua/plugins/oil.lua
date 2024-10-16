@@ -28,7 +28,7 @@ return {
         ["<C-l>"] = "actions.refresh",
         ["-"]     = "actions.parent",
         ["_"]     = "actions.open_cwd",
-        ["`"]     = "actions.cd",
+        ["`"]     = { "actions.cd", opts = { scope = "tab" } },
         ["gs"]    = "actions.change_sort",
         ["gx"]    = "actions.open_external",
         ["g."]    = "actions.toggle_hidden",
