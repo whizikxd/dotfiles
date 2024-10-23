@@ -65,10 +65,11 @@ return {
     end
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    lspconfig.clangd.setup{
+    lspconfig.clangd.setup({
+      autostart = false,
       capabilities = capabilities,
       on_attach = on_attach,
       cmd = { "clangd", "--header-insertion=never" }
-    }
+    })
   end
 }
