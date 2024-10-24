@@ -20,7 +20,7 @@ function setup()
   vim.opt.tabstop        = 2
   vim.opt.shiftwidth     = 2
   vim.opt.expandtab      = true
-  vim.opt.colorcolumn    = "79"
+  vim.opt.colorcolumn    = "80"
   vim.opt.clipboard      = "unnamedplus"
   vim.opt.history        = 150
   vim.opt.undofile       = true
