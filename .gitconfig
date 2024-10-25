@@ -1,0 +1,19 @@
+[include]
+  path = ~/.gitconfig-personal
+
+[init]
+	defaultBranch = master
+
+[alias]
+  a = add
+
+  c = commit
+
+  s = status
+
+  l = log
+  ls = shortlog
+
+  d = diff
+
+  sh = show

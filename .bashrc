@@ -14,6 +14,8 @@ fi
 
 PS2='\n> \[\e[0m\]'
 
+alias g='git'
+
 export EDITOR='nvim'
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
