@@ -2,7 +2,7 @@
   path = ~/.gitconfig-personal
 
 [init]
-	defaultBranch = master
+  defaultBranch = master
 
 [alias]
   a = add
