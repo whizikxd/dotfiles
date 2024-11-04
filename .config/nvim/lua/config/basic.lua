@@ -9,6 +9,7 @@ function setup()
   vim.g.mapleader          = " "
   vim.g.maplocalleader     = " "
 
+  vim.opt.signcolumn     = "auto:1-9"
   vim.opt.guicursor      = ""
   vim.opt.number         = true
   vim.opt.relativenumber = true
