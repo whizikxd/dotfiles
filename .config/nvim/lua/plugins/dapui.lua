@@ -1,5 +1,5 @@
-return {
-  "rcarriga/nvim-dap-ui",
+return { "rcarriga/nvim-dap-ui",
+  lazy = false,
   dependencies = {
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio"
@@ -53,8 +53,11 @@ return {
     dapui.setup({
       layouts = {
         {
-          elements = { "watches" },
-          size = 40,
+          elements = {
+            { id = "watches", size = 0.25 },
+            { id = "scopes", size = 0.75 },
+          },
+          size = 60,
           position = "right",
         },
       }
