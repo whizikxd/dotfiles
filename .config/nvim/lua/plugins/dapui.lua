@@ -78,7 +78,9 @@ return {
       dapui.close()
     end
 
-    vim.keymap.set('n', '<F5>', dap.continue, { desc = "Start/Continue debugging" })
+    vim.keymap.set('n', '<F5>', dap.continue, { desc = "Start/Continue debugging session" })
+    vim.keymap.set('n', '<F6>', dap.terminate, { desc = "Terminate debugging session" })
+    vim.keymap.set('n', '<F7>', dap.restart, { desc = "Restart debugging session" })
     vim.keymap.set('n', '<F10>', dap.step_over, { desc = "Step Over" })
     vim.keymap.set('n', '<F11>', dap.step_into, { desc = "Step Into" })
     vim.keymap.set('n', '<F12>', dap.step_out, { desc = "Step Out" })
