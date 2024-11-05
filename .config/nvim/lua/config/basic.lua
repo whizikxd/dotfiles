@@ -29,7 +29,7 @@ function setup()
   vim.opt.list           = true
   vim.opt.wildignorecase = true
   vim.opt.cursorline     = true
-  vim.opt.laststatus     = 0
+  vim.opt.laststatus     = 1
   vim.opt.listchars      = {
     tab = "  ",
     lead = "~",

@@ -1,4 +1,5 @@
-return { "rcarriga/nvim-dap-ui",
+return {
+  "rcarriga/nvim-dap-ui",
   lazy = false,
   dependencies = {
     "mfussenegger/nvim-dap",
@@ -51,6 +52,10 @@ return { "rcarriga/nvim-dap-ui",
     dap.configurations.cpp = dap.configurations.c;
 
     dapui.setup({
+      controls = {
+        element = "repl",
+        enabled = false,
+      },
       layouts = {
         {
           elements = {
@@ -79,7 +84,7 @@ return { "rcarriga/nvim-dap-ui",
     vim.keymap.set('n', '<F12>', dap.step_out, { desc = "Step Out" })
     vim.keymap.set('n', '<Leader>b', dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
     vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = "Set Conditional Breakpoint" })
-    vim.keymap.set('n', '<Leader>dr', dap.repl.open, { desc = "Open REPL" })
+    vim.keymap.set('n', '<Leader>dr', dap.repl.toggle, { desc = "Toggle REPL" })
     vim.keymap.set('n', '<Leader>du', dapui.toggle, { desc = "Toggle DAP UI" })
   end
 }
