@@ -22,3 +22,6 @@
   d = diff
 
   sh = show
+
+[merge]
+  log = true # 20
