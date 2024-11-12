@@ -62,6 +62,7 @@ return {
       local opts = { noremap = true, silent = true }
       vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>d", ":lua vim.lsp.buf.definition()<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>D", ":lua vim.lsp.buf.declaration()<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>F", ":lua vim.lsp.buf.code_action()<CR>", opts)
     end
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
