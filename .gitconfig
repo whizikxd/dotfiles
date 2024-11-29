@@ -17,7 +17,8 @@
   s = status
 
   l = log
-  ls = shortlog
+  sl = shortlog
+  rl = reflog
 
   d = diff
 
