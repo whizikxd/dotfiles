@@ -17,6 +17,7 @@
   s = status
 
   l = log
+  gl = log --graph
   sl = shortlog
   rl = reflog
 
@@ -26,3 +27,7 @@
 
 [merge]
   log = true # 20
+  ff = false
+
+[pull]
+  ff = true
