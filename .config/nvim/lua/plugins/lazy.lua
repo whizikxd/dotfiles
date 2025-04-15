@@ -17,9 +17,9 @@ function setup()
 
   require("lazy").setup({
     require("plugins.colorscheme"),
-    require("plugins.treesitter"),
+    -- require("plugins.treesitter"),
     require("plugins.telescope"),
-    require("plugins.dapui"),
+    -- require("plugins.dapui"),
     require("plugins.cmp"),
     require("plugins.oil"),
   })

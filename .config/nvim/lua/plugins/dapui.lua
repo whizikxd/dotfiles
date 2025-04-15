@@ -17,7 +17,7 @@ return {
 
     dap.configurations.c = {
       {
-        name = "run(gdb)",
+        name = "gdb",
         type = "gdb",
         request = "launch",
         program = function()
@@ -31,7 +31,7 @@ return {
         end,
       },
       {
-        name = "args(gdb)",
+        name = "gdb args",
         type = "gdb",
         request = "launch",
         program = function()

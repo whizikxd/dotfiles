@@ -21,7 +21,7 @@ return {
       }
     })
     vim.keymap.set("n", "<leader>t", ":Telescope<CR>",  { silent = true })
-    vim.keymap.set("n", ";", ":Telescope find_files<CR>", { silent = true })
+    vim.keymap.set("n", "\\", ":Telescope find_files<CR>", { silent = true })
     vim.keymap.set("n", "'", ":Telescope live_grep<CR>",  { silent = true })
   end
 }

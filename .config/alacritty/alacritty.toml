@@ -1,8 +1,8 @@
 [font]
-normal      = { family = "Comic Mono", style = "Bold" }
-bold        = { family = "Comic Mono", style = "Bold" }
-italic      = { family = "Comic Mono", style = "Italic" }
-bold_italic = { family = "Comic Mono", style = "Bold Italic" }
+normal      = { family = "Fira Code", style = "Normal" }
+bold        = { family = "Fira Code", style = "Bold" }
+italic      = { family = "Fira Code", style = "Italic" }
+bold_italic = { family = "Fira Code", style = "Bold Italic" }
 size = 16
 
 [colors.primary]

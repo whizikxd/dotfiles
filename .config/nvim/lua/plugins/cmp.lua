@@ -72,5 +72,10 @@ return {
       on_attach = on_attach,
       cmd = { "clangd", "--header-insertion=never" }
     })
+    lspconfig.zls.setup({
+      autostart = true,
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
   end
 }
