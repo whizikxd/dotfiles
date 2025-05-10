@@ -11,11 +11,17 @@ return {
     telescope.setup({
       pickers = {
         find_files = {
-          hidden = true
+          hidden = true,
+          file_ignore_patterns = {
+            ".git/"
+          }
         },
         live_grep = {
           additional_args = {
             "--hidden"
+          },
+          glob_pattern = {
+            "!.git/**"
           }
         }
       }
