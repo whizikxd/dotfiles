@@ -13,7 +13,7 @@ return {
         find_files = {
           hidden = true,
           file_ignore_patterns = {
-            ".git/"
+            "^%.git/"
           }
         },
         live_grep = {

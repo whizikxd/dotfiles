@@ -30,4 +30,4 @@
   ff = false
 
 [pull]
-  ff = true
+  ff = false
