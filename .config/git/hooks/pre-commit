@@ -1,0 +1,38 @@
+#!/bin/bash
+# Author: xezrunner (github.com/xezrunner)
+# Inspired by Jonathan Blow's nocheckin setup with SVN (twitch.tv/j_blow) (youtube.com/@jblow888)
+# Credit: DustinGadal on r/Jai: reddit.com/r/Jai/comments/jp0vjy/nocheckin_behavior_in_gitsourcetree/gbfhzd1
+
+# Required programs/utilities: git, grep, xargs, wc
+
+# To install, move and rename to <repo>/.git/hooks/pre-commit (or merge)
+# The file name has to be "pre-commit" for Git to use it. Compatible with Github Desktop GUI.
+
+# This pre-commit hook checks for the existence of the word "$SEARCH_TARGET"
+# in your source files, then aborts the commit if any matches were found, with
+# output of file path, line number and match preview.
+
+SEARCH_TARGET="nocheckin"
+
+# Reject colors when not supported by terminal (/or GUIs like Github Desktop):
+ncolors=$(tput colors)
+if test -t 1 && test -n "$ncolors" && test $ncolors -ge 8; then
+	CL_RED='\033[31m'
+	CL_BRED='\033[1;31m'
+	CL_NONE='\033[0m'
+fi
+
+MESSAGE_0="${CL_BRED}Error:${CL_NONE} $SEARCH_TARGET(s) in"
+MESSAGE_1="file(s):"
+
+SEARCH_CMD="git diff --staged -i --diff-filter=d --name-only -G $SEARCH_TARGET --relative"
+GREP_CMD="grep -H $SEARCH_TARGET -n --color=auto" # <filename>:line******
+
+# 'wc -l' (line count of input) to get number of files from diff output:
+STATUS=$($SEARCH_CMD | wc -l)
+
+if ((STATUS > 0)); then
+	echo -e $MESSAGE_0 $STATUS $MESSAGE_1;
+	($SEARCH_CMD | xargs $GREP_CMD);
+	exit 1;
+fi

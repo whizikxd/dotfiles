@@ -3,6 +3,7 @@
 
 [init]
   defaultBranch = master
+  templateDir = ~/.config/git
 
 [alias]
   a = add
