@@ -1,5 +1,7 @@
 #!/bin/bash
 # Author: xezrunner (github.com/xezrunner)
+# Modified by: whizikxd (github.com/whizikxd)
+#              - Added option for case insensitive search
 # Inspired by Jonathan Blow's nocheckin setup with SVN (twitch.tv/j_blow) (youtube.com/@jblow888)
 # Credit: DustinGadal on r/Jai: reddit.com/r/Jai/comments/jp0vjy/nocheckin_behavior_in_gitsourcetree/gbfhzd1
 
@@ -13,6 +15,7 @@
 # output of file path, line number and match preview.
 
 SEARCH_TARGET="nocheckin"
+CASE_INSENSITIVE=true
 
 # Reject colors when not supported by terminal (/or GUIs like Github Desktop):
 ncolors=$(tput colors)
@@ -27,6 +30,9 @@ MESSAGE_1="file(s):"
 
 SEARCH_CMD="git diff --staged -i --diff-filter=d --name-only -G $SEARCH_TARGET --relative"
 GREP_CMD="grep -H $SEARCH_TARGET -n --color=auto" # <filename>:line******
+if [ "$CASE_INSENSITIVE" = true ]; then
+	GREP_CMD="$GREP_CMD -i"
+fi
 
 # 'wc -l' (line count of input) to get number of files from diff output:
 STATUS=$($SEARCH_CMD | wc -l)
