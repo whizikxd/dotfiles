@@ -28,9 +28,10 @@ fi
 MESSAGE_0="${CL_BRED}Error:${CL_NONE} $SEARCH_TARGET(s) in"
 MESSAGE_1="file(s):"
 
-SEARCH_CMD="git diff --staged -i --diff-filter=d --name-only -G $SEARCH_TARGET --relative"
+SEARCH_CMD="git diff --staged --diff-filter=d --name-only -G $SEARCH_TARGET --relative"
 GREP_CMD="grep -H $SEARCH_TARGET -n --color=auto" # <filename>:line******
 if [ "$CASE_INSENSITIVE" = true ]; then
+	SEARCH_CMD="$SEARCH_CMD -i"
 	GREP_CMD="$GREP_CMD -i"
 fi
 
