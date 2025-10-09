@@ -17,6 +17,9 @@ PS2='\n> \[\e[0m\]'
 alias g='git'
 alias ll='ls -lah'
 
+# "fgrep here"
+alias fgh='grep -rnI --color=auto . -e'
+
 export EDITOR='nvim'
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
