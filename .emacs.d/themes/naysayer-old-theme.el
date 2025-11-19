@@ -1,8 +1,8 @@
-;;; naysayer-theme.el --- The naysayer color theme
+;;; naysayer-old-theme.el --- The naysayer color theme
 
 ;; Author: Nick Aversano <nickav@users.noreply.github.com>
 ;; Version: 0.34
-;; Filename: naysayer-theme.el
+;; Filename: naysayer-old-theme.el
 ;; Package-Requires: ((emacs "24"))
 ;; URL: https://github.com/nickav/naysayer-theme.el
 ;; License: GPL-3+
@@ -16,7 +16,7 @@
 (unless (>= emacs-major-version 24)
   (error "The naysayer theme requires Emacs 24 or later!"))
 
-(deftheme naysayer "The naysayer color theme")
+(deftheme naysayer-old "The naysayer color theme")
 
 ;; Monokai colors
 (defcustom naysayer-theme-yellow "#E6DB74" "Primary colors - yellow" :type 'string :group 'monokai)
@@ -28,22 +28,21 @@
 (defcustom naysayer-theme-cyan "#A1EFE4" "Primary colors - cyan" :type 'string :group 'monokai)
 (defcustom naysayer-theme-violet "#AE81FF" "Primary colors - violet" :type 'string :group 'monokai)
 
-(let ((background "#062329")
+(let ((background "#181818")
       (gutters    "#062329")
       (gutter-fg  "#062329")
       (gutters-active "#062329")
       (builtin      "#ffffff")
       (selection  "#0000ff")
       (text       "#d1b897")
-      (comments   "#44b340")
+      (comments   "#F2EF33")
       (punctuation "#8cde94")
       (keywords "#ffffff")
-      (variables "#c1d1e3")
-      ; (variables "#d1b897")
+      (variables "#d1b897")
+      ;;      (variables "#c1d1e3")
       (functions "#ffffff")
-      ; (functions "#d1b897")
       (methods    "#c1d1e3")
-      (strings    "#2ec09c")
+      (strings    "#C6C6C6")
       (constants "#7ad0c6")
       (macros "#8cde94")
       (numbers "#7ad0c6")
@@ -54,7 +53,7 @@
       (line-fg "#126367"))
 
   (custom-theme-set-faces
-   'naysayer
+   'naysayer-old
 
    ;; Default colors
    ;; *****************************************************************************
@@ -85,9 +84,7 @@
 
    ;; Plugins
    ;; *****************************************************************************
-;   `(trailing-whitespace ((t (:foreground nil :background ,warning))))
    `(trailing-whitespace ((t (:foreground nil :background ,error))))
-;   `(hitespace-trailing ((t (:background nil :foreground ,warning :inverse-video t))))
    `(whitespace-trailing ((t (:background nil :foreground ,error :inverse-video t))))
 
    `(linum ((t (:foreground ,line-fg :background ,background))))
@@ -154,7 +151,6 @@
 
     ;; better compatibility with default DOOM mode-line
    `(error ((t (:foreground nil :weight normal))))
-;   `(error ((t (:foreground ,error :weight normal))))
    `(doom-modeline-project-dir ((t (:foreground nil :weight bold))))
 
    ;; js2-mode
@@ -178,7 +174,7 @@
   )
 
   (custom-theme-set-variables
-    'naysayer
+    'naysayer-old
     '(linum-format " %5i ")
   )
 )
@@ -190,12 +186,12 @@
 
 ;; *****************************************************************************
 
-(provide-theme 'naysayer)
+(provide-theme 'naysayer-old)
 
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
 
-(provide 'naysayer-theme)
+(provide 'naysayer-old-theme)
 
 ;;; naysayer-theme.el ends here

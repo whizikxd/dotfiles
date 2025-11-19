@@ -19,6 +19,7 @@ alias ll='ls -lah'
 
 # "fgrep here"
 alias fgh='grep -rnI --color=auto . -e'
+alias ffh='f() { find . -type f -iname "*$1*"; }; f'
 
 export EDITOR='nvim'
 export VISUAL=$EDITOR
