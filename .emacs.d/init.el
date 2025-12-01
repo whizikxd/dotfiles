@@ -64,27 +64,34 @@
 	(other . "gnu")))
 
 ;; Colemak dh binds
-;; (global-set-key (kbd "C-e") 'previous-line)
-;; (global-set-key (kbd "C-i") 'move-end-of-line)
+(global-set-key (kbd "C-e") 'previous-line)
+(global-set-key (kbd "C-i") 'move-end-of-line)
 
-;; (global-set-key (kbd "C-t") 'forward-char)
-;; (global-set-key (kbd "C-s") 'backward-char)
+(global-set-key (kbd "C-t") 'forward-char)
+(global-set-key (kbd "C-s") 'backward-char)
 
-;; (global-set-key (kbd "M-t") 'forward-word)
-;; (global-set-key (kbd "M-s") 'backward-word)
+(global-set-key (kbd "M-t") 'forward-word)
+(global-set-key (kbd "M-s") 'backward-word)
 
-;; (global-set-key (kbd "M-v") 'find-file)
-;; (global-set-key (kbd "M-h") 'switch-to-buffer)
+(global-set-key (kbd "M-v") 'find-file)
+(global-set-key (kbd "M-h") 'switch-to-buffer)
 
-;; (global-set-key (kbd "C-v") 'delete-forward-char)
-;; (global-set-key (kbd "M-d") 'kill-word)
+(global-set-key (kbd "C-v") 'delete-forward-char)
+(global-set-key (kbd "M-d") 'kill-word)
 
-;; (global-set-key (kbd "C-u") 'undo)
+(global-set-key (kbd "C-u") 'undo)
 
-;; (global-set-key (kbd "M-i") 'isearch-forward)
-;; (define-key isearch-mode-map (kbd "M-i") 'isearch-repeat-forward)
-;; (global-set-key (kbd "M-y") 'isearch-backward)
-;; (define-key isearch-mode-map (kbd "M-y") 'isearch-repeat-backward)
+(global-set-key (kbd "M-i") 'isearch-forward)
+(define-key isearch-mode-map (kbd "M-i") 'isearch-repeat-forward)
+(global-set-key (kbd "M-y") 'isearch-backward)
+(define-key isearch-mode-map (kbd "M-y") 'isearch-repeat-backward)
 
-;; (global-set-key (kbd "M-e") 'scroll-down-command)
-;; (global-set-key (kbd "M-n") 'scroll-up-command)
+(global-set-key (kbd "M-e") 'scroll-down-command)
+(global-set-key (kbd "M-n") 'scroll-up-command)
+
+;; Dired
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "n") 'dired-next-line)
+  (define-key dired-mode-map (kbd "e") 'dired-previous-line)
+
+  (define-key dired-mode-map (kbd "%") 'dired-up-directory))
