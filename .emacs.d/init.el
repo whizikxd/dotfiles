@@ -73,7 +73,7 @@
 (global-set-key (kbd "M-t") 'forward-word)
 (global-set-key (kbd "M-s") 'backward-word)
 
-(global-set-key (kbd "M-v") 'find-file)
+(global-set-key (kbd "M-k") 'find-file)
 (global-set-key (kbd "M-h") 'switch-to-buffer)
 
 (global-set-key (kbd "C-v") 'delete-forward-char)
