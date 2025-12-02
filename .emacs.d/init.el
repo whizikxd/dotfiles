@@ -63,9 +63,12 @@
 	(c++-mode . "linux")
 	(other . "gnu")))
 
+;; Fix for C-i and TAB being the same
+(define-key input-decode-map [?\C-i] [C-i-not-tab])
+
 ;; Colemak dh binds
 (global-set-key (kbd "C-e") 'previous-line)
-(global-set-key (kbd "C-i") 'move-end-of-line)
+(global-set-key (kbd "<C-i-not-tab>") #'move-end-of-line)
 
 (global-set-key (kbd "C-t") 'forward-char)
 (global-set-key (kbd "C-s") 'backward-char)
