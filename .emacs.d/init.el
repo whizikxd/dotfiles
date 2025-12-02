@@ -89,6 +89,8 @@
 (global-set-key (kbd "M-e") 'scroll-down-command)
 (global-set-key (kbd "M-n") 'scroll-up-command)
 
+(global-set-key (kbd "M-u") 'pop-to-mark-command)
+
 ;; Dired
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "n") 'dired-next-line)
