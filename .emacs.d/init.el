@@ -9,6 +9,9 @@
 
 (editorconfig-mode 1)
 
+;; Always ask for confirmation
+(setq confirm-kill-emacs 'yes-or-no-p)
+
 (setq ring-bell-function 'ignore)
 
 ;; (setq display-line-numbers-type 'relative)
