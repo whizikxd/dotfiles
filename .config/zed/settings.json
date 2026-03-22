@@ -1,0 +1,77 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "git_panel": {
+    "tree_view": true
+  },
+  "current_line_highlight": "none",
+  "inline_code_actions": true,
+  "gutter": {
+    "line_numbers": false,
+    "runnables": false,
+    "folds": true,
+    "breakpoints": false
+  },
+  "tabs": {
+    "git_status": false
+  },
+  "title_bar": {
+    "show_branch_icon": false
+  },
+  "debugger": {
+    "button": false
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "diagnostics": {
+    "lsp_pull_diagnostics": {
+      
+    }
+  },
+  "format_on_save": "off",
+  "enable_language_server": false,
+  "show_edit_predictions": true,
+  "edit_predictions": {
+    "mode": "subtle",
+    "ollama": {
+      "model": "deepseek-coder:1.3b-base",
+      "prompt_format": "deepseek_coder"
+    },
+    "provider": "ollama"
+  },
+  "ui_font_family": "Fira Code",
+  "buffer_font_family": "Fira Code",
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "enable_thinking": false
+    },
+    "profiles": {
+      
+    },
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "enable_thinking": false
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "base_keymap": "SublimeText",
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.0,
+  "theme": "Naysayer old",
+}
