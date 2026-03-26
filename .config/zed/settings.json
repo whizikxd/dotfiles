@@ -7,21 +7,33 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "indent_guides": {
+    "enabled": false
+  },
+  "project_panel": {
+    "button": true
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://rig0.home.arpa:11434"
+    }
+  },
   "git_panel": {
     "tree_view": true
   },
   "current_line_highlight": "none",
-  "inline_code_actions": true,
+  "inline_code_actions": false,
   "gutter": {
     "line_numbers": false,
     "runnables": false,
-    "folds": true,
+    "folds": false,
     "breakpoints": false
   },
   "tabs": {
     "git_status": false
   },
   "title_bar": {
+    "show_menus": false,
     "show_branch_icon": false
   },
   "debugger": {
@@ -46,6 +58,7 @@
   "edit_predictions": {
     "mode": "subtle",
     "ollama": {
+      "api_url": "http://rig0.home.arpa:11434",
       "model": "deepseek-coder:1.3b-base",
       "prompt_format": "deepseek_coder"
     },
@@ -71,7 +84,7 @@
     "model_parameters": []
   },
   "base_keymap": "SublimeText",
-  "ui_font_size": 15.0,
-  "buffer_font_size": 13.0,
+  "ui_font_size": 17.0,
+  "buffer_font_size": 16.0,
   "theme": "Naysayer old",
 }
