@@ -7,6 +7,40 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "search": {
+    "button": false
+  },
+  "toolbar": {
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false,
+    "breadcrumbs": false
+  },
+  "hover_popover_enabled": true,
+  "tab_bar": {
+    "show": true
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "active_encoding_button": "enabled"
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "terminal": {
+
+  },
+  "disable_ai": true,
+  "icon_theme": "Material Icon Theme",
+  "use_autoclose": false,
+  "languages": {
+    "CSharp": {
+
+    }
+  },
   "indent_guides": {
     "enabled": false
   },
@@ -33,6 +67,7 @@
     "git_status": false
   },
   "title_bar": {
+    "show_sign_in": false,
     "show_menus": false,
     "show_branch_icon": false
   },
@@ -48,8 +83,9 @@
     "dock": "left"
   },
   "diagnostics": {
+    "button": false,
     "lsp_pull_diagnostics": {
-      
+
     }
   },
   "format_on_save": "off",
@@ -73,7 +109,7 @@
       "enable_thinking": false
     },
     "profiles": {
-      
+
     },
     "default_model": {
       "provider": "ollama",
