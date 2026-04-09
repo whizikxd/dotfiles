@@ -102,6 +102,11 @@
   },
   "ui_font_family": "Fira Code",
   "buffer_font_family": "Fira Code",
+  "buffer_font_features": {
+    "calt": false,
+    "liga": false,
+    "dlig": false
+  },
   "agent": {
     "inline_assistant_model": {
       "provider": "ollama",
