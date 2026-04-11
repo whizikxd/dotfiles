@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_line_height": "standard",
   "search": {
     "button": false
   },
@@ -100,8 +101,8 @@
     },
     "provider": "ollama"
   },
-  "ui_font_family": "Fira Code",
-  "buffer_font_family": "Fira Code",
+  "ui_font_family": "Courier New",
+  "buffer_font_family": "Courier New",
   "buffer_font_features": {
     "calt": false,
     "liga": false,
