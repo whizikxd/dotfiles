@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "preview_tabs": {
+    "enabled": false
+  },
   "buffer_line_height": "standard",
   "search": {
     "button": false
@@ -19,10 +22,12 @@
   },
   "hover_popover_enabled": true,
   "tab_bar": {
+    "show_tab_bar_buttons": true,
+    "show_nav_history_buttons": false,
     "show": true
   },
   "status_bar": {
-    "show_active_file": false,
+    "show_active_file": true,
     "active_encoding_button": "enabled"
   },
   "collaboration_panel": {
