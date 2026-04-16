@@ -106,12 +106,21 @@
     },
     "provider": "ollama"
   },
-  "ui_font_family": "Courier New",
-  "buffer_font_family": "Courier New",
+  "ui_font_family": "Liberation Mono",
+  "buffer_font_family": "Liberation Mono",
   "buffer_font_features": {
-    "calt": false,
     "liga": false,
-    "dlig": false
+    "calt": false,
+    "cv01": false,
+    "cv02": false,
+    "cv15": false,
+    "cv19": false,
+    "cv23": false,
+    "cv29": false,
+    "cv31": false,
+    "ss01": false,
+    "ss03": false,
+    "ss05": false
   },
   "agent": {
     "inline_assistant_model": {
